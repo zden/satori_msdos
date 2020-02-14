@@ -1,0 +1,120 @@
+; **************************************
+; *         XMODE.INC MACROS           *
+; **************************************
+
+_putxpixel	MACRO x, y, c
+	mov cx, x
+	mov dx, y
+	mov al, c
+	call putxpixel
+ENDM
+
+; **************************************
+_setsplitscreen		MACRO l
+	call wait4retrace
+	mov ax, l
+	call setsplitscreen
+ENDM
+
+; **************************************
+_setstartaddress 	MACRO	sa
+	call wait4retrace
+	mov ax, sa
+	call setstartaddress
+ENDM
+
+; **************************************
+_setpage	MACRO	p
+	call wait4retrace
+	mov ax, p * 16000
+	call setstartaddress
+ENDM
+; **************************************
+_setyzoom 	MACRO	yz
+	mov al, yz
+	call setyzoom
+ENDM
+
+; **************************************
+_clearxpage	MACRO p
+	mov di, p * 4000
+	mov cx, 2000
+	call clearxblock
+ENDM
+
+; **************************************
+_setbitplain 	MACRO b
+	mov ax, (b shl 8) or 2
+	mov dx, 3c4h
+	out dx, ax
+ENDM
+
+; **************************************
+_setcolor	MACRO	col, r, g, b
+	push ax bx cx
+	mov al, col
+	mov bx, (g shl 8) | r
+	mov cl, b
+	call setcolor
+	pop cx bx ax
+ENDM
+
+; **************************************
+_setpalblock	MACRO	pal, col, len
+	push ax bx si
+	mov si, offset pal
+	mov al, col
+	mov bx, len
+	call wait4retrace
+	call setpalblock
+	pop si bx ax
+ENDM
+
+; **************************************
+_setpallete	MACRO	pal
+	push ax bx si
+	mov si, offset pal
+	mov al, 0
+	mov bx, 256
+	call setpalblock
+	pop si bx ax
+ENDM
+
+; **************************************
+_getpalblock	MACRO	pal, col, len
+	push ax bx si
+	mov si, offset pal
+	mov al, 0
+	mov bx, len
+	call getpalblock
+	pop si bx ax
+ENDM
+
+; **************************************
+_getpallete	MACRO	pal
+	push ax bx si
+	mov si, offset pal
+	mov al, 0
+	mov bx, 256
+	call getpalblock
+	pop si bx ax
+ENDM
+
+; **************************************
+_fadescreen	MACRO
+	push ax bx
+	mov al, 0
+	mov bx, 256
+	call fadepalblock
+	pop bx ax
+ENDM
+
+; **************************************
+_unfadescreen	MACRO	pal
+	push ax bx si
+	mov al, 0
+	mov bx, 256
+	mov si, offset pal
+	call unfadepalblock
+	pop si bx ax
+ENDM
