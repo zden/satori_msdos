@@ -1,0 +1,49 @@
+LABEL obj_end_rightarrow_full byte
+;Vertex, Faces:       
+	db 3, 1
+;Vertex list:
+	db 0, 0
+	db 0, 40
+	db 30, 20
+;Faces list:
+	db 0, 1, 2
+LABEL obj_end_leftarrow_full byte
+;Vertex, Faces:
+	db 3, 1
+;Vertex list:
+	db 27, 0
+	db 27, 40
+	db 0, 20
+;Faces list:
+	db 0, 1, 2
+LABEL obj_end_uparrow_full byte
+;Vertex, Faces:
+	db 3, 1
+;Vertex list:
+	db 22, 0
+	db 0, 30
+	db 44, 30
+;Faces list:
+	db 0, 1, 2
+
+LABEL obj_end_downarrow_full byte
+;Vertex, Faces:
+	db 3, 1
+;Vertex list:
+	db 22, 30
+	db 0, 0
+	db 44, 0
+;Faces list:
+	db 0, 1, 2
+
+LABEL obj_end_circlemiddle byte
+;Vertex, Faces:
+	db 4, 2
+;Vertex list:
+	db 0, 5
+	db 5, 0
+	db 5, 10
+	db 10, 5
+;Faces list:
+	db 0, 1, 2
+	db 1, 2, 3

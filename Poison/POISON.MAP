@@ -1,0 +1,12 @@
+
+ Start  Stop   Length Name               Class
+
+ 00000H 0CBB1H 0CBB2H CODE               
+ 0CBC0H 0F3BFH 02800H PATTERNS_SEG       
+ 0F3C0H 193D7H 0A018H MODULE_SEG         
+ 193E0H 1BA34H 02655H _CODE              PLAYSEG
+ 1BA40H 20082H 04643H __CODE             PLAYSEGSB
+ 20090H 2048FH 00400H _STACK             STACK
+
+Program entry point at 0000:0000
+

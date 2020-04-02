@@ -1,0 +1,46 @@
+; === MACROS *******************************************************************
+
+store_command	macro command
+	mov	bx, [control_commands_count_new]
+	cmp	bx, 12
+	ja	$+5+2
+	mov	[control_commands_new+bx], command
+	inc	control_commands_count_new
+	endm
+
+store_palette	macro	pal, pal_from, pal_len
+	mov	[prepared_palette_offset], offset pal
+	mov	[prepared_palette_from], pal_from
+	mov	[prepared_palette_len], pal_len
+	mov	[prepared_palette], 1
+	endm
+
+new_screen	macro
+	mov	[prepared_screen], 1
+	endm
+
+data_in		macro
+	code	ends
+	data	segment "data"
+	endm
+
+data_out	macro
+	data	ends
+	code	segment
+	endm
+
+reset_counter	macro
+	mov	time_counter, 0
+	endm
+
+get_counter	macro
+	mov	eax, time_counter
+	endm
+
+reset_counter2	macro
+	mov	time_counter2, 0
+	endm
+
+get_counter2	macro
+	mov	eax, time_counter2
+	endm

@@ -1,0 +1,73 @@
+-cmd-	-act-
+1	black pal
+2	white pal
+3	grey pal
+4	grey pal 3/4 intensity
+5	grey pal 1/2 intensity
+6	grey pal 1/4 intensity
+7	grey inv pal
+8	1/4 intensity flash
+9	1/2 intensity flash
+10	3/4 intensity flash
+11	hard flash
+12	hard flash stop
+13	full intensity flash
+14	hard flash zero int
+15	hard flash int up
+16	hard flash max int
+17	hard flash int down
+-
+20	sign1
+21	sign2
+22	sign3
+23	sign4
+26	sign fade
+27	kaos sign
+28	kaos sign stop
+-
+30	p
+31	o
+32	i
+33	s
+34	o
+35	n
+36	poison
+-
+40	picture shake hor
+41	picture shake vert
+42	picture shake boom
+43	picture shake kaos
+45	xor crash
+46	xor crash continuous
+47	xor crash continuous stop
+49	bassdrum
+50	bassdrum progress
+51	synchro crash
+-
+60	rotate init
+61	rotate progress
+62	x rot toggle
+63	y rot toggle
+64	z rot toggle
+65	rotate delay off
+66	p
+67	o
+68	i
+69	s
+70	o
+71	n
+74	sign1 toggle
+75	sign1 progress
+-
+80	end frame 1
+81	2
+82	3
+83	4
+84	5
+85	6
+86	7
+87	8
+-
+253	set 1
+254	set 2
+255	end

@@ -1,0 +1,17 @@
+tunn1	dw walls*9 dup (0)
+
+left	EQU dw 0, -1*(tspeed)
+right	EQU dw 0, tspeed
+up	EQU dw -1*(tspeed), 0
+down	EQU dw tspeed, 0
+forw	EQU dw 0, 0
+
+turns	label word
+right
+down
+right
+up
+right
+right
+down
+forw
